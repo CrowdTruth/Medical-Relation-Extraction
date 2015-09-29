@@ -17,7 +17,7 @@ For collecting annotations from medical experts, we employed medical students, i
 
 ## Crowdsourcing:
 
-<img src="http://www.ancad.ro/wp-content/uploads/2015/08/task_workflow_2.png" alt="Fig.1: CrowdTruth Workflow for Medical Relation Extraction on CrowdFlower." style="width: 840px;"/>
+![Fig.1: CrowdTruth Workflow for Medical Relation Extraction on CrowdFlower.](http://www.ancad.ro/wp-content/uploads/2015/08/task_workflow_2.png)
 
 The crowdsourced annotation is performed in a workflow of three tasks. The sentences were pre-processed to determine whether the terms found with distant supervision are complete or not; identifying complete medical terms is difficult, and the automated method left a number of terms still incomplete, which was a significant source of error for the crowd in subsequent stages, so the incomplete terms were sent through a crowdsourcing task (*FactSpan*) in order to get the full word span of the medical terms. Next, the sentences with the corrected term spans were sent to a relation extraction task (*RelEx*), where the crowd was asked to decide which relation holds between the two extracted terms. The workers were able to read the definition of each relation, and could choose any number of relations per sentence. Finally, the results from *RelEx* were passed to another crowdsourcing task (*RelDir*) to determine the direction of the relation with regards to the two extracted terms. (*FactSpan* and *RelDir*) were added to the basic *RelEx* task to correct the most common sources of errors from the crowd.
 
