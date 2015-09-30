@@ -1,10 +1,8 @@
-# CrowdTruth medical relation extraction
+# CrowdTruth ground truth for medical relation extraction
 
 NLP often relies on the development of a set of gold standard annotations, or *ground truth*, for the purpose of training, testing and evaluation. *Distant supervision* [1] is a helpful solution that has given linked data sets a lot of attention in NLP, however the data can be noisy. Human annotators can help to clean up this noise, however for Clinical NLP domain knowledge is usually believed to be required from annotators, making the process for acquiring ground truth more difficult. In addition, current methods for collecting annotation attempt to minimize disagreement between annotators, and therefore fail to model the ambiguity inherent in language. The lack of annotated datasets for training and benchmarking is therefore one of the main challenges of Clinical Natural Language Processing.
 
 We propose the **[CrowdTruth](http://crowdtruth.org/)** method for collecting medical ground truth through crowdsourcing, based on the observation that disagreement between annotators can be used to capture ambiguity in text. This repository contains a ground truth corpus for medical relation extraction, acquired with crowdsourcing and processed with **[CrowdTruth](http://crowdtruth.org/)** metrics.
-
-Download the data here: [Medical-Relation-Extraction.zip](https://github.com/CrowdTruth/Medical-Relation-Extraction/archive/master.zip).
 
 More details about the corpus can be found in the papers:
 
