@@ -9,23 +9,6 @@ More details about the corpus can be found in the papers:
 * Anca Dumitrache, Lora Aroyo, Chris Welty: **[CrowdTruth Measures for Language Ambiguity: The Case of Medical Relation Extraction](http://www.ancad.ro/2015/09/01/crowdtruth-measures-for-language-ambiguity)**. [LD4IE](http://oak.dcs.shef.ac.uk/ld4ie2015/LD4IE2015/Overview.html) at [ISWC 2015](http://iswc2015.semanticweb.org/).
 * Anca Dumitrache, Lora Aroyo, Chris Welty: **[Achieving Expert-Level Annotation Quality with CrowdTruth: The Case of Medical Relation Extraction](http://www.ancad.ro/2015/08/14/achieving-expert-level-annotation-quality-with-crowdtruth/)**. [BDM2I](https://sbmi.uth.edu/ontology/bdm2i.htm) at [ISWC 2015](http://iswc2015.semanticweb.org/).
 
-## Data
-
-The dataset used in our experiments contains 902 medical sentences extracted from PubMed article abstracts. The MetaMap parser [2] ran over the corpus to identify medical terms from the UMLS vocabulary [3]. Distant supervision [1] was used to select sentences with pairs of terms that are linked in UMLS by one of our chosen seed medical relations. The intuition of distant supervision is that since we know the terms are related, and they are in the same sentence, it is more likely that the sentence expresses a relation between them. The seed relations were restricted to a set of eleven UMLS relations important for clinical decision making.
-
-For collecting annotations from medical experts, we employed medical students, in their third year at American universities, that had just taken United States Medical Licensing Examination (USMLE) and were waiting for their results. Each sentence was annotated by exactly one person. The annotation task consisted of deciding whether or not the UMLS seed relation discovered by distant supervision is present in the sentence for the two selected terms.
-
-## Crowdsourcing
-
-![Fig.1: CrowdTruth Workflow for Medical Relation Extraction on CrowdFlower.](http://www.ancad.ro/wp-content/uploads/2015/08/task_workflow_2.png)
-
-The crowdsourced annotation is performed in a workflow of three tasks. The sentences were pre-processed to determine whether the terms found with distant supervision are complete or not; identifying complete medical terms is difficult, and the automated method left a number of terms still incomplete, which was a significant source of error for the crowd in subsequent stages, so the incomplete terms were sent through a crowdsourcing task (*FactSpan*) in order to get the full word span of the medical terms. Next, the sentences with the corrected term spans were sent to a relation extraction task (*RelEx*), where the crowd was asked to decide which relation holds between the two extracted terms. The workers were able to read the definition of each relation, and could choose any number of relations per sentence. Finally, the results from *RelEx* were passed to another crowdsourcing task (*RelDir*) to determine the direction of the relation with regards to the two extracted terms. (*FactSpan* and *RelDir*) were added to the basic *RelEx* task to correct the most common sources of errors from the crowd.
-
-## Relation extraction classifier
-
-The sentences together with the relation annotations were then used to train a manifold model for relation extraction [4]. This model was developed for the medical domain, and tested for the relation set that we employ. It is trained per individual relation, by feeding it both positive and negative data. It offers support for both discrete labels, and real values for weighting the confidence of the training data entries, with positive values in (0,1], and negative values in [-1,0). 
-
-
 ## Dataset files
 
 ```
@@ -54,7 +37,32 @@ This file contains the processed ground truth for the medical *cause* relation, 
 ```
 The raw data collected from crowdsourcing for each of the 3 tasks.
 
-## References
+```
+|--/aggregate
+```
+Various aggregated datasets collected as part of the classifier evaluation.
+
+
+## Experimental setup
+
+### Data
+
+The dataset used in our experiments contains 902 medical sentences extracted from PubMed article abstracts. The MetaMap parser [2] ran over the corpus to identify medical terms from the UMLS vocabulary [3]. Distant supervision [1] was used to select sentences with pairs of terms that are linked in UMLS by one of our chosen seed medical relations. The intuition of distant supervision is that since we know the terms are related, and they are in the same sentence, it is more likely that the sentence expresses a relation between them. The seed relations were restricted to a set of eleven UMLS relations important for clinical decision making.
+
+For collecting annotations from medical experts, we employed medical students, in their third year at American universities, that had just taken United States Medical Licensing Examination (USMLE) and were waiting for their results. Each sentence was annotated by exactly one person. The annotation task consisted of deciding whether or not the UMLS seed relation discovered by distant supervision is present in the sentence for the two selected terms.
+
+### Crowdsourcing
+
+![Fig.1: CrowdTruth Workflow for Medical Relation Extraction on CrowdFlower.](https://raw.githubusercontent.com/CrowdTruth/Medical-Relation-Extraction/master/img/task_workflow_2.png)
+
+The crowdsourced annotation is performed in a workflow of three tasks. The sentences were pre-processed to determine whether the terms found with distant supervision are complete or not; identifying complete medical terms is difficult, and the automated method left a number of terms still incomplete, which was a significant source of error for the crowd in subsequent stages, so the incomplete terms were sent through a crowdsourcing task (*FactSpan*) in order to get the full word span of the medical terms. Next, the sentences with the corrected term spans were sent to a relation extraction task (*RelEx*), where the crowd was asked to decide which relation holds between the two extracted terms. The workers were able to read the definition of each relation, and could choose any number of relations per sentence. Finally, the results from *RelEx* were passed to another crowdsourcing task (*RelDir*) to determine the direction of the relation with regards to the two extracted terms. (*FactSpan* and *RelDir*) were added to the basic *RelEx* task to correct the most common sources of errors from the crowd.
+
+### Relation extraction classifier
+
+The sentences together with the relation annotations were then used to train a manifold model for relation extraction [4]. This model was developed for the medical domain, and tested for the relation set that we employ. It is trained per individual relation, by feeding it both positive and negative data. It offers support for both discrete labels, and real values for weighting the confidence of the training data entries, with positive values in (0,1], and negative values in [-1,0). 
+
+
+### References
 
 [1] Mintz, M., Bills, S., Snow, R., Jurafsky, D.: *Distant supervision for relation extraction without labeled data*. In: Joint Conference of the 47th Annual Meeting of the ACL and the 4th International Joint Conference on Natural Language Processing of the AFNLP: Volume 2. pp. 1003–1011. Association for Computational Linguistics (2009).
 
