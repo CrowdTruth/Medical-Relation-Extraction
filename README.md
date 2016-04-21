@@ -1,5 +1,7 @@
 # CrowdTruth ground truth for medical relation extraction
 
+[![CSV Validation](http://csvlint.io/validation/5718de8a637376048c000209.svg)](http://csvlint.io/validation/5718de8a637376048c000209)
+
 NLP often relies on the development of a set of gold standard annotations, or *ground truth*, for the purpose of training, testing and evaluation. *Distant supervision* (1) is a helpful solution that has given linked data sets a lot of attention in NLP, however the data can be noisy. Human annotators can help to clean up this noise, however for Clinical NLP domain knowledge is usually believed to be required from annotators, making the process for acquiring ground truth more difficult. In addition, current methods for collecting annotation attempt to minimize disagreement between annotators, and therefore fail to model the ambiguity inherent in language. The lack of annotated datasets for training and benchmarking is therefore one of the main challenges of Clinical Natural Language Processing.
 
 We propose the **[CrowdTruth](http://crowdtruth.org/)** method for collecting medical ground truth through crowdsourcing, based on the observation that disagreement between annotators can be used to capture ambiguity in text. This repository contains a ground truth corpus for medical relation extraction, acquired with crowdsourcing and processed with **[CrowdTruth](http://crowdtruth.org/)** metrics.
@@ -16,19 +18,26 @@ This corpus has been referenced in papers:
 |--ground_truth_treat.csv
 ```
 This files contain the processed ground truth for the medical *cause* and *treat* relations, in comma-separated format. The columns are:
-* *Sent_id*: unique ID of the data entry
+* *SID*: unique ID of the data entry
 * *relation*: medical relation
 * *sentence*: medical sentence
 * *term1, term2*: the 2 medical terms after correction with *FactSpan* and *RelDir*; together, they express the relation: ```term1 cause of/treated by term2```
-* *b1, b2*: the beginning position of each term in the sentence
-* *e1, e2*: the end position of each term in the sentence
+* *b1, b2*: the beginning position of each term in the sentence, measured in number of characters
+* *e1, e2*: the end position of each term in the sentence, measured in number of characters
 * *sentence_relation_score*: the sentence relation score of the medical relation; using cosine similarity over the aggregated crowd data, it computes the likelihood that the relation is expressed between the 2 terms in the sentence
 * *crowd*: the score used to train the relation extraction classifier by Chang et al.(4) with crowd data; it is the sentence-relation score, with a threshold to select positive and negative examples equal to 0.5, and rescaled in [0.5, 1] for positives, and [-1, -0.5] for negatives.
-* *baseline*: discrete (positive or negative) labels are given for each sentence by the distant supervision (1) method
+* *baseline*: discrete (positive or negative) labels are given for each data entry by the distant supervision (1) method, based on whether the relation is expressed between the 2 terms in the sentence
 * *expert*: discrete labels based on an expert’s judgment as to whether the *baseline* label is correct
-* *test_partition*: manual evaluation scores over the sentences where *crowd* and *expert* disagreed, used for evaluating the classifier; the sentence-relation score threshold was set at 0.7 for maximum agreement; sentences scored with 0 were determined to be ambiguous and were removed from testing
+* *test_partition*: manual evaluation scores over the sentences where *crowd* and *expert* disagreed, used for evaluating the classifier; the sentence-relation score threshold was set at 0.7 for maximum agreement; sentences scored with 0 were determined to be unclear and were removed from testing
 * *term1_UMLS, term2_UMLS*: the original UMLS (4) terms used for distant supervision, before correction with *FactSpan* and *RelDir*
 * *UMLS_seed_relation*: the UMLS relation used as a seed in distant supervision to find the given entry
+
+
+```
+|--metadata.json
+```
+Machine-readable description of the ground truth comma-separated files above.
+
 
 ```
 |--/raw
@@ -36,7 +45,7 @@ This files contain the processed ground truth for the medical *cause* and *treat
 | |--/RelEx
 | |--/RelDir
 ```
-The raw data collected from crowdsourcing for each of the 3 tasks.
+The raw data collected from crowdsourcing for each of the 3 crowdsourcing tasks.
 
 
 ## Experimental setup

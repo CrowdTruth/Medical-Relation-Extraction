@@ -1,0 +1,120 @@
+{
+  "title": "CrowdTruth ground truth for medical relation extraction",
+  "description": "A ground truth corpus for medical relation extraction, acquired with crowdsourcing and processed with CrowdTruth metrics.",
+  "fields": [{
+		"name": "SID",
+		"description": "An unique identifier of the data entry.",
+		"constraints": {
+			"required": true,
+			"unique": true
+        }
+    }, {
+		"name": "relation",
+		"description": "The medical relation for which the ground truth is collected.",
+		"constraints": {
+			"required": true
+        }
+    }, {
+		"name": "sentence_relation_score",
+		"description": "The sentence relation score of the medical relation; using cosine similarity over the aggregated crowd data, it computes the likelihood that the relation is expressed between the two terms in the sentence.",
+		"constraints": {
+			"required": true,
+			"type": "http://www.w3.org/2001/XMLSchema#double"	
+        }
+    }, {
+		"name": "crowd",
+		"description": "The score used to train the relation extraction classifier by Chang et al. with crowd data; it is the sentence-relation score, with a threshold to select positive and negative examples equal to 0.5, and rescaled in [0.5, 1] for positives, and [-1, -0.5] for negatives.",
+		"constraints": {
+			"required": true,
+			"type": "http://www.w3.org/2001/XMLSchema#double"	
+        }
+    }, {
+		"name": "baseline",
+		"description": "Discrete (positive or negative) labels are given for each data entry by the distant supervision method, based on whether the relation is expressed between the 2 terms in the sentence",
+		"constraints": {
+			"required": true,
+			"pattern": "(-1|1|)"	
+        }
+    }, {
+		"name": "expert",
+		"description": "Discrete labels based on an expert’s judgment as to whether the distant supervision label is correct.",
+		"constraints": {
+			"pattern": "(-1|1|)"
+        }
+    }, {
+		"name": "test_partition",
+		"description": "Manual evaluation scores over the sentences where crowd and expert disagreed, used for evaluating the classifier; the sentence-relation score threshold was set at 0.7 for maximum agreement; sentences scored with 0 were determined to be unclear and were removed from testing.",
+		"constraints": {
+			"pattern": "(-1|0|1|)"	
+        }
+    }, {
+		"name": "term1",
+		"description": "The first medical term, after correction with crowdsourcing; together with Term2, it expresses the relation: 'term1 relation term2'.",
+		"constraints": {
+			"required": true
+        }
+    }, {
+		"name": "b1",
+		"description": "The beginning position of Term1 in the sentence, measured in number of characters.",
+		"constraints": {
+			"required": true,
+			"type": "http://www.w3.org/2001/XMLSchema#int"	
+        }
+    }, {
+		"name": "e1",
+		"description": "The ending position of Term1 in the sentence, measured in number of characters.",
+		"datatype": "number",
+		"constraints": {
+			"required": true,
+			"type": "http://www.w3.org/2001/XMLSchema#int"	
+        }
+    }, {
+		"name": "term2",
+		"title": "Term2",
+		"description": "The second medical term, after correction with crowdsourcing; together with Term1, it expresses the relation: 'term1 relation term2'.",
+		"constraints": {
+			"required": true
+        }
+    }, {
+		"name": "b2",
+		"description": "The beginning position of Term2 in the sentence, measured in number of characters.",
+		"datatype": "number",
+		"constraints": {
+			"required": true,
+			"type": "http://www.w3.org/2001/XMLSchema#int"	
+        }
+    }, {
+		"name": "e2",
+		"description": "The ending position of Term2 in the sentence, measured in number of characters.",
+		"datatype": "number",
+		"constraints": {
+			"required": true,
+			"type": "http://www.w3.org/2001/XMLSchema#int"	
+        }
+    }, {
+		"name": "sentence",
+		"description": "The medical sentence in which the relation is expressed.",
+		"constraints": {
+			"required": true
+        }
+    }, {
+		"name": "term1_UMLS",
+		"description": "The original UMLS version of Term1, used for distant supervision, before correction with crowdsourcing.",
+		"constraints": {
+			"required": true
+        }
+    }, {
+		"name": "term2_UMLS",
+		"description": "The original UMLS version of Term2, used for distant supervision, before correction with crowdsourcing.",
+		"constraints": {
+			"required": true
+        }
+    }, {
+		"name": "UMLS_seed_relation",
+		"description": "The UMLS relation used as a seed in distant supervision to find the given entry.",
+		"constraints": {
+			"required": true
+        }
+    }
+   ]
+}
