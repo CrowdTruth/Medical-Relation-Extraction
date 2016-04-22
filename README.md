@@ -16,7 +16,7 @@ This corpus has been referenced in papers:
 ```
 |--ground_truth.csv
 ```
-This files contain the processed ground truth for the medical *cause* and *treat* relations, in comma-separated format. The columns are:
+This file contains the processed ground truth for the medical *cause* and *treat* relations, in comma-separated format. The columns are:
 * *SID*: unique ID of the data entry
 * *relation*: medical relation
 * *sentence*: medical sentence
@@ -33,9 +33,9 @@ This files contain the processed ground truth for the medical *cause* and *treat
 
 
 ```
-|--metadata.json
+|--ground_truth.csv-metadata.json
 ```
-Machine-readable description of the ground truth comma-separated files above.
+Machine-readable description of the ground truth comma-separated file above.
 
 
 ```
