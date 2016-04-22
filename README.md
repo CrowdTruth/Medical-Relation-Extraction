@@ -46,6 +46,14 @@ Machine-readable description of the ground truth comma-separated file above.
 ```
 The raw data collected from crowdsourcing for each of the 3 crowdsourcing tasks.
 
+```
+|--/templates
+| |--/FactSpan
+| |--/RelEx
+| |--/RelDir
+```
+The source code of the crowdsourcing tasks, as they were implemented and ran on [CrowdFlower](http://www.crowdflower.com).
+
 
 ## Experimental setup
 
@@ -62,7 +70,13 @@ To perform a comparison with expert-annotated data, we randomly sampled a set of
 
 ![Fig.1: CrowdTruth Workflow for Medical Relation Extraction on CrowdFlower.](https://raw.githubusercontent.com/CrowdTruth/Medical-Relation-Extraction/master/img/task_workflow_2.png)
 
-The crowdsourced annotation is performed in a workflow of three tasks. The sentences were pre-processed to determine whether the terms found with distant supervision are complete or not; identifying complete medical terms is difficult, and the automated method left a number of terms still incomplete, which was a significant source of error for the crowd in subsequent stages, so the incomplete terms were sent through a crowdsourcing task (*FactSpan*) in order to get the full word span of the medical terms. Next, the sentences with the corrected term spans were sent to a relation extraction task (*RelEx*), where the crowd was asked to decide which relation holds between the two extracted terms. The workers were able to read the definition of each relation, and could choose any number of relations per sentence. Finally, the results from *RelEx* were passed to another crowdsourcing task (*RelDir*) to determine the direction of the relation with regards to the two extracted terms. (*FactSpan* and *RelDir*) were added to the basic *RelEx* task to correct the most common sources of errors from the crowd.
+The crowdsourced annotation is performed in a workflow of three tasks. The sentences were pre-processed to determine whether the terms found with distant supervision are complete or not; identifying complete medical terms is difficult, and the automated method left a number of terms still incomplete, which was a significant source of error for the crowd in subsequent stages, so the incomplete terms were sent through a crowdsourcing task (*FactSpan*) in order to get the full word span of the medical terms. Next, the sentences with the corrected term spans were sent to a relation extraction task (*RelEx*), where the crowd was asked to decide which relation holds between the two extracted terms. The workers were able to read the definition of each relation, and could choose any number of relations per sentence. Finally, the results from *RelEx* were passed to another crowdsourcing task (*RelDir*) to determine the direction of the relation with regards to the two extracted terms. (*FactSpan* and *RelDir*) were added to the basic *RelEx* task to correct the most common sources of errors from the crowd. The runtime settings for each of the three tasks are given in the table below:
+
+| Task     | Workers/Sentence | Payment/Sentence |
+|----------|:----------------:|:----------------:|
+| FactSpan | 10               | $0.04            | 
+| RelEx    | 15               | $0.05            |
+| RelDir   | 10               | $0.01            |
 
 ### Relation extraction classifier
 

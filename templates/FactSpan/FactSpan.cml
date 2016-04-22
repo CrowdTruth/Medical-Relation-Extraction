@@ -1,0 +1,21 @@
+<p class="word_split1">{{sentence}}. </p>
+<cml:text validates="required" label="In the sentence above, does the yellow selection complete the MEDICAL TERM --{{term1}}--? Remove or add words to create a complete MEDICAL TERM in the box below." name="firstFactor" class="firstFactor" />
+<cml:hidden name="factor1" value="{{term1}}" />
+<cml:hidden name="b1" value="{{b1}}" />
+<cml:hidden name="e1" value="{{e1}}" />
+<cml:hidden name="sentence" value="{{sentence}}." />
+<cml:hidden name="wordId1" value="" />
+<cml:hidden name="saveSelectionIds1" value="" />
+<cml:hidden name="confirmIds1" value="" />
+<br/>
+
+<p class="word_split2">{{sentence}}. </p>
+<cml:text label="In the sentence above, does the yellow selection complete the MEDICAL TERM --{{term2}}--?
+
+Remove or add words to create a complete MEDICAL TERM in the box below." name="secondFactor" class="secondFactor" />
+<cml:hidden name="factor2" value="{{term2}}" />
+<cml:hidden name="b2" value="{{b2}}" />
+<cml:hidden name="e2" value="{{e2}}" />
+<cml:hidden name="wordId2" value="" />
+<cml:hidden name="saveSelectionIds2" value="" />
+<cml:hidden name="confirmIds2" value="" />

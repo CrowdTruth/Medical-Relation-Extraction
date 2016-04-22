@@ -1,0 +1,9 @@
+<p id="sentence">
+  <i>
+{{sentence}}</i>
+</p>
+<cml:radios validates="required" label="Which of the following statements is EXPRESSED in the SENTENCE above?" class="" name="direction" gold="true">
+  <cml:radio label="{{term1}} {{relation}} {{term2}}" value="{{term1}} {{relation}} {{term2}}" />
+  <cml:radio label="{{term2}} {{relation}} {{term1}}" value="{{term2}} {{relation}} {{term1}}" />
+  <cml:radio label="-{{relation}}- is NOT EXPRESSED between the two PHRASES" value="no_relation" />
+</cml:radios>
