@@ -1,7 +1,6 @@
 # CrowdTruth ground truth for medical relation extraction
 
 [![DOI](https://zenodo.org/badge/doi/10.5281/zenodo.50222.svg)](http://dx.doi.org/10.5281/zenodo.50222)
-[![CSV Validation](http://csvlint.io/validation/571a23d5637376726f0002cf.svg)](http://csvlint.io/validation/571a23d5637376726f0002cf)
 
 NLP often relies on the development of a set of gold standard annotations, or *ground truth*, for the purpose of training, testing and evaluation. *Distant supervision* (1) is a helpful solution that has given linked data sets a lot of attention in NLP, however the data can be noisy. Human annotators can help to clean up this noise, however for Clinical NLP domain knowledge is usually believed to be required from annotators, making the process for acquiring ground truth more difficult. In addition, current methods for collecting annotation attempt to minimize disagreement between annotators, and therefore fail to model the ambiguity inherent in language. The lack of annotated datasets for training and benchmarking is therefore one of the main challenges of Clinical Natural Language Processing.
 
@@ -16,8 +15,12 @@ This corpus has been referenced in papers:
 
 ```
 |--ground_truth_cause.csv
-|--ground_truth_treat.csv
+``` [![CSV Validation](http://csvlint.io/validation/571f5a2e6373767e2b0001f3.svg)](http://csvlint.io/validation/571f5a2e6373767e2b0001f3)
+
 ```
+|--ground_truth_treat.csv
+``` [![CSV Validation](http://csvlint.io/validation/571f5a326373767e2b0001f4.svg)](http://csvlint.io/validation/571f5a326373767e2b0001f4)
+
 This files contain the processed ground truth for the medical *cause* and *treat* relations, in comma-separated format. The columns are:
 * *SID*: unique ID of the sentence and term pair
 * *relation*: medical relation
