@@ -13,17 +13,11 @@ This corpus has been referenced in papers:
 
 ## Dataset files
 
-```
-|--ground_truth_cause.csv
-```
-[![CSV Validation](http://csvlint.io/validation/571f5a2e6373767e2b0001f3.svg)](http://csvlint.io/validation/571f5a2e6373767e2b0001f3)
+``` |--ground_truth_cause.csv ``` [![CSV Validation](http://csvlint.io/validation/571f5a2e6373767e2b0001f3.svg)](http://csvlint.io/validation/571f5a2e6373767e2b0001f3)
 
-```
-|--ground_truth_treat.csv
-```
-[![CSV Validation](http://csvlint.io/validation/571f5a326373767e2b0001f4.svg)](http://csvlint.io/validation/571f5a326373767e2b0001f4)
+``` |--ground_truth_treat.csv ``` [![CSV Validation](http://csvlint.io/validation/571f5a326373767e2b0001f4.svg)](http://csvlint.io/validation/571f5a326373767e2b0001f4)
 
-This files contain the processed ground truth for the medical *cause* and *treat* relations, in comma-separated format. The columns are:
+These files contain the processed ground truth for the medical *cause* and *treat* relations, in comma-separated format. The columns are:
 * *SID*: unique ID of the sentence and term pair
 * *relation*: medical relation
 * *sentence*: medical sentence
