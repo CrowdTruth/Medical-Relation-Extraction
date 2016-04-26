@@ -15,10 +15,11 @@ This corpus has been referenced in papers:
 ## Dataset files
 
 ```
-|--ground_truth.csv
+|--ground_truth_cause.csv
+|--ground_truth_treat.csv
 ```
-This file contains the processed ground truth for the medical *cause* and *treat* relations, in comma-separated format. The columns are:
-* *SID*: unique ID of the data entry
+This files contain the processed ground truth for the medical *cause* and *treat* relations, in comma-separated format. The columns are:
+* *SID*: unique ID of the sentence and term pair
 * *relation*: medical relation
 * *sentence*: medical sentence
 * *term1, term2*: the 2 medical terms after correction with *FactSpan* and *RelDir*; together, they express the relation: ```term1 cause of/treated by term2```
