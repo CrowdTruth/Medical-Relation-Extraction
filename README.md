@@ -37,7 +37,7 @@ This files contain the processed ground truth for the medical *cause* and *treat
 ```
 |--ground_truth.csv-metadata.json
 ```
-Machine-readable description of the ground truth comma-separated file above.
+Machine-readable description of the ground truth comma-separated files above.
 
 
 ```
