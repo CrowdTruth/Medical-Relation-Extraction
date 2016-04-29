@@ -1,6 +1,6 @@
 # CrowdTruth ground truth for medical relation extraction
 
-[![DOI](https://zenodo.org/badge/doi/10.5281/zenodo.50222.svg)](http://dx.doi.org/10.5281/zenodo.50222)
+[![DOI](https://zenodo.org/badge/doi/10.5281/zenodo.50676.svg)](http://dx.doi.org/10.5281/zenodo.50676)
 
 NLP often relies on the development of a set of gold standard annotations, or *ground truth*, for the purpose of training, testing and evaluation. *Distant supervision* (1) is a helpful solution that has given linked data sets a lot of attention in NLP, however the data can be noisy. Human annotators can help to clean up this noise, however for Clinical NLP domain knowledge is usually believed to be required from annotators, making the process for acquiring ground truth more difficult. In addition, current methods for collecting annotation attempt to minimize disagreement between annotators, and therefore fail to model the ambiguity inherent in language. The lack of annotated datasets for training and benchmarking is therefore one of the main challenges of Clinical Natural Language Processing.
 
