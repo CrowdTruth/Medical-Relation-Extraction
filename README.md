@@ -8,14 +8,16 @@ We propose the **[CrowdTruth](http://crowdtruth.org/)** method for collecting me
 
 This corpus has been referenced in papers:
 
-* Anca Dumitrache, Lora Aroyo, Chris Welty: **[CrowdTruth Measures for Language Ambiguity: The Case of Medical Relation Extraction](http://www.ancad.ro/2015/09/01/crowdtruth-measures-for-language-ambiguity)**. [LD4IE](http://oak.dcs.shef.ac.uk/ld4ie2015/LD4IE2015/Overview.html) at [ISWC 2015](http://iswc2015.semanticweb.org/).
-* Anca Dumitrache, Lora Aroyo, Chris Welty: **[Achieving Expert-Level Annotation Quality with CrowdTruth: The Case of Medical Relation Extraction](http://www.ancad.ro/2015/08/14/achieving-expert-level-annotation-quality-with-crowdtruth/)**. [BDM2I](https://sbmi.uth.edu/ontology/bdm2i.htm) at [ISWC 2015](http://iswc2015.semanticweb.org/).
+* Anca Dumitrache, Lora Aroyo, Chris Welty: **[Crowdsourcing Ground Truth for Medical Relation Extraction](https://arxiv.org/abs/1701.02185)**. [ACM TiiS](https://dl.acm.org/citation.cfm?id=3232718) Vol. 8, Issue 2, 2018.
+* Anca Dumitrache, Lora Aroyo, Chris Welty: **[CrowdTruth Measures for Language Ambiguity: The Case of Medical Relation Extraction](http://ceur-ws.org/Vol-1467/LD4IE2015_Dumitrache.pdf)**. [LD4IE](http://oak.dcs.shef.ac.uk/ld4ie2015/LD4IE2015/Overview.html) at [ISWC 2015](http://iswc2015.semanticweb.org/).
+* Anca Dumitrache, Lora Aroyo, Chris Welty: **[Achieving Expert-Level Annotation Quality with CrowdTruth: The Case of Medical Relation Extraction](http://ceur-ws.org/Vol-1428/BDM2I_2015_paper_3.pdf)**. [BDM2I](https://sbmi.uth.edu/ontology/bdm2i.htm) at [ISWC 2015](http://iswc2015.semanticweb.org/).
 
 ## Dataset files
 
-``` |--ground_truth_cause.csv ``` [![CSV Validation](http://csvlint.io/validation/571f5a2e6373767e2b0001f3.svg)](http://csvlint.io/validation/571f5a2e6373767e2b0001f3)
-
-``` |--ground_truth_treat.csv ``` [![CSV Validation](http://csvlint.io/validation/571f5a326373767e2b0001f4.svg)](http://csvlint.io/validation/571f5a326373767e2b0001f4)
+```
+|--ground_truth_cause.csv 
+|--ground_truth_treat.csv
+```
 
 These files contain the processed ground truth for the medical *cause* and *treat* relations, in comma-separated format. The columns are:
 * *SID*: unique ID of the sentence and term pair
